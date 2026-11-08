@@ -6,7 +6,7 @@ This guide covers installing the Thai localization mod for Senren＊Banka on Ste
 
 ## Prerequisites
 1. A legitimate copy of Senren＊Banka on Steam (compatible with both the standard release and the 18+ Uncensored Edition).
-2. Downloaded release package from [Releases](https://github.com/...):
+2. Downloaded release package from [Releases](https://github.com/AkitoPS/SenrenBanka_Thai_Project/releases):
    - `patch_extra.xp3` (Thai scenario files for all 92 chapters)
    - `data.xp3` (Pre-rendered TFT font matrix and localized UI textures)
    - Installer batch scripts
