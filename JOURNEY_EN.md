@@ -12,6 +12,9 @@ Senren＊Banka contains 60,607 dialogue lines distributed across 92 compiled sce
 
 This document records the technical hurdles encountered, how we debugged them at the kernel and bytecode levels, and the architectural solutions that brought the game to 100% Thai completion with zero regressions.
 
+Note on AI translation and open collaboration:
+Dialogue translation was assisted by artificial intelligence (AI). Minor inaccuracies, context slips, or stylistic imperfections may remain. The community is welcomed and encouraged to use, improve, adapt, or port any asset, code, or documentation in this repository to other platforms and devices freely.
+
 ---
 
 ## 1. Initial roadblock: locked font architecture (TVP_ARCHIVE_ONLY)
