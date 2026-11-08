@@ -1,0 +1,4 @@
+# Senren*Banka Thai Localization Tools Dependencies
+pythainlp>=4.0.0
+openpyxl>=3.1.0
+pillow>=9.5.0

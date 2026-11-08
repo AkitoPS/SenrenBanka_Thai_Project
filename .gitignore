@@ -1,0 +1,64 @@
+# ===============================================================================
+# Senren*Banka Thai Localization Repository .gitignore
+# ===============================================================================
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Game Archives & Binaries (Large Files > 100MB / Copyrighted Assets)
+# NOTE: Pre-built patch archives must be distributed via GitHub Releases, not git LFS/blobs
+*.xp3
+*.exe
+*.dll
+*.pimg_raw
+*.tlg
+*.ogg
+*.wav
+*.mp3
+
+# User Save Files & Runtime Backups
+backup_user_saves/
+savedata/
+*.dat
+*.bmp
+*.jpg
+*.png
+
+# Temporary Scratch & Testing Files
+scratch/
+temp/
+*.log
+*.tmp
+*.bak
+*.swp
+senren_temp_*.xlsx
+
+# Excel working files (Lock files)
+~$*.xlsx
+
+# OS Generated
+.DS_Store
+Thumbs.db
+desktop.ini
