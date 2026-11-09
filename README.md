@@ -49,7 +49,7 @@
 ## สำหรับผู้เล่นทั่วไป: วิธีติดตั้งม็อด (Installation for players)
 
 ### วิธีการติดตั้ง:
-1. ไปที่แท็บ [Releases](https://github.com/AkitoPS/SenrenBanka_Thai_Project/releases) แล้วดาวน์โหลดไฟล์แพตช์ตัวเต็ม (`SenrenBanka_Thai_Mod_Full_v1.0.zip`)
+1. ไปที่แท็บ [Releases](https://github.com/AkitoPS/SenrenBanka_Thai_Project/releases) แล้วดาวน์โหลดไฟล์แพตช์ตัวเต็ม (`SenrenBanka_Thai_Mod_Full_v1.0.1.zip`)
 2. แตกไฟล์ ZIP ออกมา
 3. ดับเบิลคลิกที่ไฟล์ `Install_Thai_Mod.bat` ตัวติดตั้งจะค้นหาโฟลเดอร์ Steam สำรองไฟล์เดิม และติดตั้งม็อดภาษาไทยให้อัตโนมัติ
 4. ดับเบิลคลิก `Start_Thai_Game.bat` เพื่อเข้าเล่นเกมได้อย่างปลอดภัย
