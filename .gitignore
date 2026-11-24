@@ -27,20 +27,32 @@ wheels/
 .installed.cfg
 *.egg
 
+# Developer Build & Backup Directories (Never commit local game/build artifacts)
+output/
+archive/
+tools/fonts_base/
+tools/fonts_extended/
+SenrenBanka_THAI_PLAYABLE/
+
 # Game Archives & Binaries (Large Files > 100MB / Copyrighted Assets)
 # NOTE: Pre-built patch archives must be distributed via GitHub Releases, not git LFS/blobs
 *.xp3
 *.exe
 *.dll
+*.pimg
 *.pimg_raw
 *.tlg
 *.ogg
 *.wav
 *.mp3
 
+# Keep open-source TTF font source allowed
+!tools/fonts/*.ttf
+
 # User Save Files & Runtime Backups
 backup_user_saves/
 savedata/
+*.ksd
 *.dat
 *.bmp
 *.jpg

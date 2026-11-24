@@ -1,9 +1,9 @@
 """
-tool/kirikiri_text_compiler.py — Kirikiri Mode 1 & Dual-Key XOR Text Compiler.
+tools/kirikiri_text_compiler.py — Kirikiri Mode 1 & Dual-Key XOR Text Compiler.
 
 Handles compilation (encryption) and decompilation (decryption) of Kirikiri engine text
 assets (INI, TXT, CSV) according to Kirikiri Crypt Mode 1:
-1. Normalization & Thai PUA shaping via tool.thai_pua_shaper.shape_thai_text.
+1. Normalization & Thai PUA shaping via tools.thai_pua_shaper.shape_thai_text.
 2. UTF-16LE encoding with 16-bit bit-pair permutation:
    u' = ((u & 0xAAAA) >> 1) | ((u & 0x5555) << 1)
 3. 5-byte magic header: b'\\xFE\\xFE\\x01\\xFF\\xFE'
@@ -17,8 +17,15 @@ import sys
 import argparse
 from typing import Tuple, Dict, Any, Optional
 
+TOOLS_DIR = os.path.dirname(os.path.abspath(__file__))
+REPO_ROOT = os.path.dirname(TOOLS_DIR)
+if REPO_ROOT not in sys.path:
+    sys.path.insert(0, REPO_ROOT)
+if TOOLS_DIR not in sys.path:
+    sys.path.insert(0, TOOLS_DIR)
+
 try:
-    from tool.thai_pua_shaper import shape_thai_text
+    from tools.thai_pua_shaper import shape_thai_text
 except ImportError:
     from thai_pua_shaper import shape_thai_text
 

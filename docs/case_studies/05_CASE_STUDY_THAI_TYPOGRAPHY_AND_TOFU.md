@@ -28,7 +28,7 @@
 
 ## 3. สองนวัตกรรมทางวิศวกรรมที่แก้ไขได้ 100% (The Dual Breakthrough)
 
-เราได้คิดค้นและนำกลยุทธ์ 2 ชั้นมาใช้งานผ่านโปรแกรม [`method/tools/build_extended_tft.py`](file:///c:/Users/DELL/Desktop/VN_Thai_Project/method/tools/build_extended_tft.py):
+เราได้คิดค้นและนำกลยุทธ์ 2 ชั้นมาใช้งานผ่านโปรแกรม [`method/tools/build_extended_tft.py`](../../tools/build_extended_tft.py):
 
 ### นวัตกรรมที่ 1: กำหนด Zero-Advance Metrics (`incX = 0`)
 ในตาราง Glyph Metrics ของไฟล์ `.tft` เราบังคับให้สระและวรรณยุกต์ไทยทั้งหมดมีระยะเลื่อนเคอร์เซอร์เป็นศูนย์:
@@ -62,4 +62,4 @@ if codepoint in THAI_COMBINING_MARKS:
 1. **อย่าพึ่งพาเอนจินในการจัดสระ ให้ควบคุมระดับ Metrics ไบนารี:**
    - การแก้ปัญหาภาษาไทยในวิชวลโนเวลญี่ปุ่น ต้องแก้ที่ระดับไฟล์ฟอนต์ `.tft` โดยตรง การปรับ `incX = 0` คือหัวใจสำคัญที่สุด
 2. **ทำ Pre-processing ข้อความด้วย PUA Shaper เสมอ:**
-   - ข้อความภาษาไทยก่อนจะถูกฉีดเข้าสู่เกม ต้องผ่านโมดูล [`thai_pua_shaper.py`](file:///c:/Users/DELL/Desktop/VN_Thai_Project/method/tools/thai_pua_shaper.py) เพื่อแปลงสระซ้อนเป็นรหัส PUA ที่เตรียมไว้ในฟอนต์เสมอ
+   - ข้อความภาษาไทยก่อนจะถูกฉีดเข้าสู่เกม ต้องผ่านโมดูล [`thai_pua_shaper.py`](../../tools/thai_pua_shaper.py) เพื่อแปลงสระซ้อนเป็นรหัส PUA ที่เตรียมไว้ในฟอนต์เสมอ

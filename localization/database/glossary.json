@@ -1,0 +1,278 @@
+{
+  "project": "Senren＊Banka Thai Localization",
+  "version": "2.0.0",
+  "description": "Standardized Thai glossary synchronized with MASTER_TRANSLATION_BIBLE v2.0, EROTIC_TRANSLATION_BIBLE v2.0, and ThaiWordWrapper Trie",
+  "approved_at": "2026-10-19T23:00:00+07:00",
+  "translation_style": "ANIME_STYLE",
+  "honorifics_policy": {
+    "default_style": "ANIME_STYLE",
+    "description": "Maintain natural anime-style Thai honorifics (คุณ-, รุ่นพี่-, พี่-, -จัง, นายท่าน, คุณหนู) with dynamic progression from Common Route to Heroine Routes."
+  },
+  "characters": [
+    {
+      "id": "char_masaomi",
+      "romaji": "Arichi Masaomi",
+      "kanji": "有地 将臣",
+      "thai_standard": "อาริจิ มาซาโอมิ",
+      "thai_short": "มาซาโอมิ",
+      "role": "PROTAGONIST",
+      "addressing": {
+        "by_yoshino_early": "คุณอาริจิ",
+        "by_yoshino_late": "คุณมาซาโอมิ",
+        "by_mako_early": "คุณอาริจิ",
+        "by_mako_late": "คุณมาซาโอมิ",
+        "by_murasame": "นายท่าน",
+        "by_lena": "มาซาโอมิ",
+        "by_koharu": "รุ่นพี่มาซาโอมิ",
+        "by_roka": "อาริจิ / มาโบ",
+        "by_rentarou": "มาซาโอมิ"
+      },
+      "notes": "Main protagonist. Uses ผม in narration, ผม/ฉัน in dialogue."
+    },
+    {
+      "id": "char_yoshino",
+      "romaji": "Tomotake Yoshino",
+      "kanji": "朝武 芳乃",
+      "thai_standard": "โทโมทาเกะ โยชิโนะ",
+      "thai_short": "โยชิโนะ",
+      "role": "MAIN_HEROINE",
+      "title": "เจ้าหญิงผู้พิทักษ์",
+      "addressing": {
+        "by_masaomi_early": "คุณโทโมทาเกะ",
+        "by_masaomi_late": "คุณโยชิโนะ / โยชิโนะ",
+        "by_mako": "คุณหนู"
+      },
+      "notes": "Miko / เจ้าหญิงผู้พิทักษ์ of Hoori Shrine"
+    },
+    {
+      "id": "char_mako",
+      "romaji": "Hitachi Mako",
+      "kanji": "常陸 茉子",
+      "thai_standard": "ฮิตาจิ มาโกะ",
+      "thai_short": "มาโกะ",
+      "role": "MAIN_HEROINE",
+      "title": "นินจา",
+      "notes": "Ninja guardian of Yoshino. Uses ดิฉัน formally/early, and ฉัน after Ch 003."
+    },
+    {
+      "id": "char_murasame",
+      "romaji": "Murasame",
+      "kanji": "ムラサメ",
+      "thai_standard": "มุราซาเมะ",
+      "thai_short": "มุราซาเมะจัง",
+      "role": "MAIN_HEROINE",
+      "title": "ภูตดาบศักดิ์สิทธิ์",
+      "addressing": {
+        "by_masaomi": "มุราซาเมะจัง / ท่านมุราซาเมะ"
+      },
+      "notes": "Spirit of divine blade Murasamemaru. Uses ข้า / นายท่าน / เจ้า with endings หนา, รึ, เล่า, ดอก."
+    },
+    {
+      "id": "char_lena",
+      "romaji": "Lena Liechtenauer",
+      "kanji": "レナ・リヒテナウアー",
+      "thai_standard": "เลน่า ลิชเทเนาเออร์",
+      "thai_short": "เลน่า",
+      "role": "MAIN_HEROINE",
+      "notes": "Exchange student. Uses ค่ะ/นะคะ normally, and ขอรับ! (〜であります) / รับบัญชา! (御意) as comedy gimmicks."
+    },
+    {
+      "id": "char_koharu",
+      "romaji": "Kurama Koharu",
+      "kanji": "鞍馬 小春",
+      "thai_standard": "คุรามะ โคฮารุ",
+      "thai_short": "โคฮารุ",
+      "role": "SUB_HEROINE",
+      "notes": "Junior at Kurama sweet shop, Rentarou's younger sister and Masaomi's cousin."
+    },
+    {
+      "id": "char_roka",
+      "romaji": "Maniwa Roka",
+      "kanji": "馬庭 芦花",
+      "thai_standard": "มานิวะ โรกะ",
+      "thai_short": "พี่โรกะ",
+      "role": "SUB_HEROINE",
+      "notes": "Older sister figure and owner of the sweet shop/tea house."
+    },
+    {
+      "id": "char_rentarou",
+      "romaji": "Kurama Rentarou",
+      "kanji": "鞍馬 廉太郎",
+      "thai_standard": "คุรามะ เร็นทาโร่",
+      "thai_short": "เร็นทาโร่",
+      "role": "SUPPORTING",
+      "notes": "Masaomi's best friend and cousin (Koharu's older brother). Speaker tag is เร็นทาโร่, called เร็น in dialogue."
+    },
+    {
+      "id": "char_genjuurou",
+      "romaji": "Kurama Genjuurou",
+      "kanji": "鞍馬 玄十郎",
+      "thai_standard": "คุรามะ เก็นจูโร่",
+      "thai_short": "เก็นจูโร่",
+      "role": "SUPPORTING",
+      "notes": "Masaomi, Rentarou, and Koharu's maternal grandfather."
+    },
+    {
+      "id": "char_yasuharu",
+      "romaji": "Tomotake Yasuharu",
+      "kanji": "朝武 安晴",
+      "thai_standard": "โทโมทาเกะ ยาสุฮารุ",
+      "thai_short": "ยาสุฮารุ",
+      "role": "SUPPORTING",
+      "notes": "Yoshino's father, head priest of Hoori Shrine."
+    },
+    {
+      "id": "char_akiho",
+      "romaji": "Baba Akiho",
+      "kanji": "馬場 晶穂",
+      "thai_standard": "บาบะ อากิโฮะ",
+      "thai_short": "อากิโฮะ",
+      "role": "SUPPORTING",
+      "notes": "Classmate at Hoori Academy."
+    }
+  ],
+  "locations_and_objects": [
+    {
+      "id": "loc_hoori",
+      "romaji": "Hoori",
+      "kanji": "穂織",
+      "thai_standard": "โฮริ",
+      "context": "Town name: เมืองโฮริ / โฮริ"
+    },
+    {
+      "id": "loc_hoori_shrine",
+      "romaji": "Hoori Shrine",
+      "kanji": "穂織神社",
+      "thai_standard": "ศาลเจ้าโฮริ",
+      "context": "Main shrine where Murasamemaru is enshrined"
+    },
+    {
+      "id": "obj_murasamemaru",
+      "romaji": "Murasamemaru",
+      "kanji": "叢雨丸",
+      "thai_standard": "มุราซาเมะมารุ",
+      "context": "Sacred divine blade"
+    },
+    {
+      "id": "obj_shintou",
+      "romaji": "Shintou",
+      "kanji": "神刀",
+      "thai_standard": "ดาบศักดิ์สิทธิ์",
+      "context": "Divine blade category"
+    },
+    {
+      "id": "obj_goshintai",
+      "romaji": "Goshintai",
+      "kanji": "御神体",
+      "thai_standard": "วัตถุเทพสถิต",
+      "context": "Sacred object housing a deity at the shrine"
+    },
+    {
+      "id": "loc_kurama_shop",
+      "romaji": "Kurama Sweet Shop",
+      "kanji": "甘味処「くらま」",
+      "thai_standard": "ร้านขนมหวานคุรามะ",
+      "context": "Traditional Japanese confectionery shop"
+    },
+    {
+      "id": "loc_hananoyu",
+      "romaji": "Hananoyu",
+      "kanji": "花乃湯",
+      "thai_standard": "ฮานะโนะยุ",
+      "context": "Ryokan / hot spring inn"
+    },
+    {
+      "id": "loc_academy",
+      "romaji": "Hoori Academy",
+      "kanji": "穂織学園",
+      "thai_standard": "โรงเรียนโฮริ",
+      "context": "Local academy"
+    }
+  ],
+  "lore_and_cultural_terms": [
+    {
+      "id": "term_kuhime",
+      "romaji": "Kuhime",
+      "kanji": "供姫",
+      "thai_standard": "เจ้าหญิงผู้พิทักษ์",
+      "context": "Yoshino's sacred role"
+    },
+    {
+      "id": "term_tatarigami",
+      "romaji": "Tatarigami",
+      "kanji": "祟神 / 祟り神",
+      "thai_standard": "เทพอสูร",
+      "context": "Curse god / calamity entity"
+    },
+    {
+      "id": "term_kunoichi",
+      "romaji": "Kunoichi / Shinobi",
+      "kanji": "くノ一 / 忍",
+      "thai_standard": "นินจาหญิง",
+      "context": "Mako's role"
+    },
+    {
+      "id": "term_kekkai",
+      "romaji": "Kekkai",
+      "kanji": "結界",
+      "thai_standard": "ม่านอาคม",
+      "context": "Spiritual barrier protecting Hoori"
+    },
+    {
+      "id": "term_chigiri",
+      "romaji": "Chigiri",
+      "kanji": "契り",
+      "thai_standard": "สัญญาหมั้น",
+      "context": "Sacred betrothal pledge"
+    },
+    {
+      "id": "term_miko",
+      "romaji": "Miko",
+      "kanji": "巫女",
+      "thai_standard": "มิโกะ",
+      "context": "Shrine maiden"
+    },
+    {
+      "id": "term_wagashi",
+      "romaji": "Wagashi",
+      "kanji": "和菓子",
+      "thai_standard": "ขนมหวานญี่ปุ่น",
+      "context": "Traditional Japanese sweets"
+    },
+    {
+      "id": "term_tamagoyaki",
+      "romaji": "Tamagoyaki",
+      "kanji": "卵焼き",
+      "thai_standard": "ไข่ม้วน",
+      "context": "Japanese rolled omelet"
+    },
+    {
+      "id": "term_modern_male",
+      "romaji": "Nikubou / Penis",
+      "kanji": "肉棒 / ペニス",
+      "thai_standard": "ท่อนเนื้อ",
+      "context": "Protected compound for ThaiWordWrapper in H-scenes"
+    },
+    {
+      "id": "term_modern_clit",
+      "romaji": "Clitoris",
+      "kanji": "クリトリス",
+      "thai_standard": "เม็ดเสียว",
+      "context": "Protected compound for ThaiWordWrapper in H-scenes"
+    },
+    {
+      "id": "term_modern_labia",
+      "romaji": "Kaben",
+      "kanji": "花弁",
+      "thai_standard": "กลีบเนื้อ",
+      "context": "Protected compound for ThaiWordWrapper in H-scenes"
+    },
+    {
+      "id": "term_modern_prostate",
+      "romaji": "Zenritsusen",
+      "kanji": "前立腺",
+      "thai_standard": "ต่อมลูกหมาก",
+      "context": "Protected compound for ThaiWordWrapper in H-scenes"
+    }
+  ]
+}

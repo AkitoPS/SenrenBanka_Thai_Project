@@ -17,7 +17,7 @@ Because both exceed the 100 MB limit, they should not be committed directly into
 
 Before creating a GitHub release, package the mod files into zip archives:
 
-### Package A: Full playable mod (`SenrenBanka_Thai_Mod_Full_v1.0.zip`)
+### Package A: Full playable mod (`SenrenBanka_Thai_Mod_Full_v1.0.2.zip`)
 Include:
 1. `patch_extra.xp3` (175 MB)
 2. `data.xp3` (1,011 MB)
@@ -41,10 +41,10 @@ For users who already have the Thai font matrix:
 1. Open your repository on GitHub.
 2. On the right sidebar, click Releases, then Draft a new release.
 3. Fill in the release details:
-   - Tag version: `v1.0.0`
-   - Release title: `Senren＊Banka Thai Localization v1.0.0`
+   - Tag version: `v1.0.2`
+   - Release title: `Senren＊Banka Thai Localization v1.0.2`
    - Description: Overview and installation instructions.
-4. Attach `SenrenBanka_Thai_Mod_Full_v1.0.zip` or the individual `.xp3` files.
+4. Attach `SenrenBanka_Thai_Mod_Full_v1.0.2.zip` or the individual `.xp3` files.
 5. Click Publish release.
 
 ---

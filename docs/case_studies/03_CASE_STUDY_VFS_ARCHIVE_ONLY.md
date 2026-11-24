@@ -16,7 +16,7 @@
 
 ## 2. การใช้ Process Monitor (ProcMon) เพื่อหาความจริงเชิงประจักษ์
 
-เพื่อให้เห็นการทำงานจริงของตัวเกมระดับ System Call เราจึงให้ผู้ใช้รันเกมผ่านโปรแกรม **Process Monitor** ของ Microsoft Sysinternals เพื่อบันทึกพฤติกรรมของ `SenrenBanka.exe` ออกมาเป็นไฟล์ [`report2.CSV`](file:///c:/Users/DELL/Desktop/VN_Thai_Project/archive/logs_and_dumps/report2.CSV) (ขนาด 12 MB, จำนวนแสนบรรทัด):
+เพื่อให้เห็นการทำงานจริงของตัวเกมระดับ System Call เราจึงให้ผู้ใช้รันเกมผ่านโปรแกรม **Process Monitor** ของ Microsoft Sysinternals เพื่อบันทึกพฤติกรรมของ `SenrenBanka.exe` ออกมาเป็นไฟล์ `report2.CSV` (ขนาด 12 MB, จำนวนแสนบรรทัด):
 
 ### ข้อมูลสำคัญที่ค้นพบจาก ProcMon Log:
 
@@ -26,8 +26,8 @@
 2. **ตัวเกมแตกฟอนต์จาก `data.xp3` ลง `%TEMP%` เสมอ:**
    - ใน ProcMon ปรากฏหลักฐานชัดเจน:
      ```text
-     SenrenBanka.exe IRP_MJ_CREATE C:\Users\DELL\AppData\Local\Temp\krkr_c1bbbab76455_28147564_23708\font1_32.tft SUCCESS
-     SenrenBanka.exe IRP_MJ_WRITE  C:\Users\DELL\AppData\Local\Temp\krkr_c1bbbab76455_28147564_23708\font1_32.tft SUCCESS
+     SenrenBanka.exe IRP_MJ_CREATE C:\Users\<User>\AppData\Local\Temp\krkr_c1bbbab76455_28147564_23708\font1_32.tft SUCCESS
+     SenrenBanka.exe IRP_MJ_WRITE  C:\Users\<User>\AppData\Local\Temp\krkr_c1bbbab76455_28147564_23708\font1_32.tft SUCCESS
      ```
    - ก่อนจะแสดงตัวหนังสือ ตัวเกมจะอ่านไบต์จาก `data.xp3` แล้วถอดรหัสออกมาเขียนลงในโฟลเดอร์ Temp ชั่วคราว แล้วจึงโหลดเข้าสู่อินเทอร์เฟซ GDI
 3. **การเพิกเฉยต่อชื่อไฟล์ใหม่:**

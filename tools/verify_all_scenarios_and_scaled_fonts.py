@@ -6,14 +6,41 @@ import re
 from typing import Dict, Any, List
 
 sys.stdout.reconfigure(encoding='utf-8')
-sys.path.insert(0, '.')
-sys.path.insert(0, 'tool')
+TOOLS_DIR = os.path.dirname(os.path.abspath(__file__))
+REPO_ROOT = os.path.dirname(TOOLS_DIR)
+if REPO_ROOT not in sys.path:
+    sys.path.insert(0, REPO_ROOT)
+if TOOLS_DIR not in sys.path:
+    sys.path.insert(0, TOOLS_DIR)
 
-from tool.verify_full_game_thai import parse_xp3_archive_fast, extract_member_fast, contains_thai
-from tool.thai_injector import decrypt_psb_auto
+try:
+    from tools.verify_full_game_thai import parse_xp3_archive_fast, extract_member_fast, contains_thai
+    from tools.thai_injector import decrypt_psb_auto
+    from tools.steam_locator import find_senren_steam_dir
+except ImportError:
+    from verify_full_game_thai import parse_xp3_archive_fast, extract_member_fast, contains_thai
+    from thai_injector import decrypt_psb_auto
+    from steam_locator import find_senren_steam_dir
 
-PLAYABLE_DIR = "SenrenBanka_THAI_PLAYABLE"
-PATCH_EXTRA_XP3 = os.path.join(PLAYABLE_DIR, "patch_extra.xp3")
+
+def resolve_patch_extra_path() -> str:
+    if len(sys.argv) > 1 and os.path.isfile(sys.argv[1]):
+        return sys.argv[1]
+    steam_dir = find_senren_steam_dir()
+    for cand in (
+        os.path.join(REPO_ROOT, "output", "patch_extra.xp3"),
+        os.path.join(REPO_ROOT, "SenrenBanka_THAI_PLAYABLE", "patch_extra.xp3"),
+        os.path.join(steam_dir, "patch_extra.xp3") if steam_dir else None,
+        os.path.join(REPO_ROOT, "patch_extra.xp3"),
+    ):
+        if cand and os.path.isfile(cand):
+            return cand
+    raise FileNotFoundError(
+        "Could not locate patch_extra.xp3. Pass its path as an argument or run RUN_THAI_INJECTOR.bat first."
+    )
+
+
+PATCH_EXTRA_XP3 = resolve_patch_extra_path()
 
 print("=" * 75)
 print("COMPREHENSIVE AUDIT: ALL 92 SCENARIO FILES IN patch_extra.xp3")
@@ -90,18 +117,25 @@ for scn_idx, scn_name in enumerate(sorted(scn_files), 1):
 
 print(f"\n--- Total Font-Size Tagged Lines Found Across All 92 Scenarios: {len(all_tagged_lines)} ---")
 
+def contains_japanese(text: str) -> bool:
+    return any('\u3040' <= c <= '\u30ff' or '\u4e00' <= c <= '\u9fff' for c in text)
+
+
 thai_tagged = [item for item in all_tagged_lines if contains_thai(item[2])]
-non_thai_tagged = [item for item in all_tagged_lines if not contains_thai(item[2])]
+jp_tagged = [item for item in all_tagged_lines if not contains_thai(item[2]) and contains_japanese(item[2])]
+non_thai_tagged = [item for item in all_tagged_lines if not contains_thai(item[2]) and not contains_japanese(item[2])]
 
 print(f"Tagged lines with Thai translation: {len(thai_tagged)}")
-print(f"Tagged lines WITHOUT Thai (English): {len(non_thai_tagged)}")
+print(f"Original Japanese tagged lines (untouched JP slot): {len(jp_tagged)}")
+print(f"Tagged lines WITHOUT Thai (Untranslated English): {len(non_thai_tagged)}")
 
 if non_thai_tagged:
-    print("\n[!] CRITICAL: Found untranslated font-sized lines:")
+    print("\n[!] CRITICAL: Found untranslated English font-sized lines:")
     for scn, pct, text in non_thai_tagged:
         print(f"  [{scn}] ({pct}%): {repr(text)}")
+    sys.exit(1)
 else:
-    print("\n[SUCCESS] 100% of ALL tagged font-size lines in ALL 92 scenarios have Thai translations!")
+    print("\n[SUCCESS] 100% of ALL English font-size tagged lines in ALL 92 scenarios have Thai translations!")
 
 print("\n--- Verification of Known Problematic Font-Scaled Lines ---")
 for k, val in found_known_checks.items():

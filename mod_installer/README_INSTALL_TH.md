@@ -6,9 +6,9 @@
 
 ## สิ่งที่ต้องเตรียม
 1. ตัวเกม Senren＊Banka บน Steam (รองรับทั้งเวอร์ชันปกติ และ 18+ Free DLC)
-2. ไฟล์ม็อดที่ดาวน์โหลดมาจากหน้า [Releases](https://github.com/AkitoPS/SenrenBanka_Thai_Project/releases):
+2. ไฟล์ม็อดที่ดาวน์โหลดมาจากหน้า [Releases](https://github.com/AkitoPS/SenrenBanka_Thai_Project/releases/latest):
    - `patch_extra.xp3` (ไฟล์บทสนทนาภาษาไทยครบ 92 ตอน)
-   - `data.xp3` (ไฟล์ฟอนต์ไทยและอินเทอร์เฟซภาษาไทย)
+   - `data.xp3` (ชุดฟอนต์ไทย 20 ขนาดและปุ่ม UI ภาษาไทย)
    - โฟลเดอร์ `mod_installer` (หรือไฟล์ `.bat` ตัวติดตั้ง)
 
 ---

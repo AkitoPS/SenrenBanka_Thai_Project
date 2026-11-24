@@ -28,28 +28,31 @@ import re
 import tempfile
 
 sys.stdout.reconfigure(encoding='utf-8')
-sys.path.insert(0, '.')
-sys.path.insert(0, 'tool')
+TOOLS_DIR = os.path.dirname(os.path.abspath(__file__))
+REPO_ROOT = os.path.dirname(TOOLS_DIR)
+if REPO_ROOT not in sys.path:
+    sys.path.insert(0, REPO_ROOT)
+if TOOLS_DIR not in sys.path:
+    sys.path.insert(0, TOOLS_DIR)
 
 from thai_pua_shaper import shape_thai_text
 from thai_word_wrapper import ThaiWordWrapper
 from patch_names_and_choices import SPEAKER_TRANSLATIONS, CHOICE_TRANSLATIONS, SFX_TRANSLATIONS, EXTRA_VARIANT_TRANSLATIONS
+from steam_locator import find_senren_steam_dir, xp3_contains_thai_dialogue
 
 try:
-    from kirikiri_text_compiler import encrypt_file
+    from tools.kirikiri_text_compiler import encrypt_file
 except ImportError:
-    from tool.kirikiri_text_compiler import encrypt_file
+    from kirikiri_text_compiler import encrypt_file
 
 thai_wrapper = ThaiWordWrapper()
 
-BASE_PATCH_EXTRA = "archive/original_game_backup/patch_extra.xp3"
-TARGET_PLAYABLE = "SenrenBanka_THAI_PLAYABLE/patch_extra.xp3"
-STEAM_PATHS = [
-    r"C:\Program Files (x86)\Steam\steamapps\common\SenrenBanka\patch_extra.xp3",
-    r"D:\SteamLibrary\steamapps\common\SenrenBanka\patch_extra.xp3",
-    r"E:\SteamLibrary\steamapps\common\SenrenBanka\patch_extra.xp3"
-]
-EXCEL_PATH = "Senren_Banka_Thai_Progress.xlsx"
+BACKUP_DIR = os.path.join(REPO_ROOT, "archive", "original_game_backup")
+BASE_PATCH_EXTRA = os.path.join(BACKUP_DIR, "patch_extra.xp3")
+OUTPUT_PATCH_EXTRA = os.path.join(REPO_ROOT, "output", "patch_extra.xp3")
+PLAYABLE_DIR = os.path.join(REPO_ROOT, "SenrenBanka_THAI_PLAYABLE")
+TARGET_PLAYABLE = os.path.join(PLAYABLE_DIR, "patch_extra.xp3")
+EXCEL_PATH = os.path.join(REPO_ROOT, "Senren_Banka_Thai_Progress.xlsx")
 BRACKETS = ['「', '」', '『', '』']
 
 def sanitize_text(text: str) -> str:
@@ -209,7 +212,7 @@ def load_translations_from_excel(excel_path: str):
     return translations_by_chapter
 
 def load_json_translations():
-    trans_dir = "localization/translations"
+    trans_dir = os.path.join(REPO_ROOT, "localization", "translations")
     if not os.path.exists(trans_dir):
         return {}
     res = {}
@@ -506,33 +509,64 @@ def run_injector():
 
     print(f"\n[*] Chapters with translations available: {list(all_trans.keys())}")
 
-    # 2. Open base patch_extra.xp3
-    base_patch_candidates = [
-        BASE_PATCH_EXTRA,
-        "patch_extra.xp3",
-        r"C:\Program Files (x86)\Steam\steamapps\common\SenrenBanka\patch_extra.xp3",
-        r"D:\SteamLibrary\steamapps\common\SenrenBanka\patch_extra.xp3",
-        r"E:\SteamLibrary\steamapps\common\SenrenBanka\patch_extra.xp3"
-    ]
+    steam_dir = find_senren_steam_dir()
+    if steam_dir:
+        print(f"[*] Detected game directory: {steam_dir}")
+
+    # 2. Locate CLEAN ENGLISH base patch_extra.xp3 (never overwrite/reuse a Thai-modded base!)
+    def _ensure_backup_copy(src_path: str, dst_path: str, label: str):
+        if not os.path.exists(dst_path):
+            os.makedirs(os.path.dirname(dst_path), exist_ok=True)
+            shutil.copy2(src_path, dst_path)
+            print(f"[✓] Backed up clean original ({label}) -> {dst_path}")
+
     base_patch_path = None
-    for bp in base_patch_candidates:
-        if os.path.exists(bp):
-            base_patch_path = bp
-            break
-    assert base_patch_path and os.path.exists(base_patch_path), f"Missing base patch_extra.xp3 across search paths: {base_patch_candidates}"
-    print(f"[*] Loaded base patch from: {base_patch_path}")
+    search_candidates = [
+        ("local backup", BASE_PATCH_EXTRA),
+    ]
+    if steam_dir:
+        search_candidates.append(("Steam backup .bak", os.path.join(steam_dir, "thai_mod_backup", "patch_extra.xp3.bak")))
+        search_candidates.append(("Steam live", os.path.join(steam_dir, "patch_extra.xp3")))
+    search_candidates.append(("repo root", os.path.join(REPO_ROOT, "patch_extra.xp3")))
+
+    for label, cand in search_candidates:
+        if not os.path.isfile(cand):
+            continue
+        if xp3_contains_thai_dialogue(cand):
+            print(f"[!] Skipping '{cand}' ({label}): already contains Thai dialogue (modded file).")
+            continue
+        base_patch_path = cand
+        # Immediately isolate a permanent clean backup so repeated runs NEVER break!
+        if os.path.abspath(cand) != os.path.abspath(BASE_PATCH_EXTRA):
+            _ensure_backup_copy(cand, BASE_PATCH_EXTRA, "archive/original_game_backup")
+            base_patch_path = BASE_PATCH_EXTRA
+        if steam_dir and label == "Steam live":
+            _ensure_backup_copy(cand, os.path.join(steam_dir, "thai_mod_backup", "patch_extra.xp3.bak"), "Steam thai_mod_backup")
+        break
+
+    if not base_patch_path or not os.path.isfile(base_patch_path):
+        print("\n[ERROR] Cannot find a clean original English 'patch_extra.xp3' base file!")
+        print("  Why? The game folder already has a modded Thai patch_extra.xp3 and no clean .bak backup was found.")
+        print("  How to fix:")
+        print("    1. Put your original English patch_extra.xp3 into: archive/original_game_backup/patch_extra.xp3")
+        print("    2. OR in Steam: Right-click Senren*Banka -> Properties -> Installed Files -> Verify integrity of game files.")
+        print("       Then re-run RUN_THAI_INJECTOR.bat (it will auto-backup your clean English file before patching).")
+        return False
+
+    print(f"[*] Loaded clean English base patch from: {base_patch_path}")
     with open(base_patch_path, 'rb') as f:
         orig_xp3 = f.read()
 
-    # Discover adult.xp3 archive
+    # Discover adult.xp3 archive across all Steam libraries and local backups
     adult_paths = [
-        r"C:\Program Files (x86)\Steam\steamapps\common\SenrenBanka\adult.xp3",
-        "SenrenBanka_THAI_PLAYABLE/adult.xp3",
-        "archive/original_game_backup/adult.xp3"
+        os.path.join(BACKUP_DIR, "adult.xp3"),
+        os.path.join(PLAYABLE_DIR, "adult.xp3"),
     ]
+    if steam_dir:
+        adult_paths.insert(1, os.path.join(steam_dir, "adult.xp3"))
     adult_path = None
     for ap in adult_paths:
-        if os.path.exists(ap):
+        if os.path.isfile(ap):
             adult_path = ap
             break
     adult_scns = read_xp3_scenarios(adult_path) if adult_path else {}
@@ -850,42 +884,37 @@ def run_injector():
 
     # 5. Write to Target Folders
     print("\n[*] Deploying patch_extra.xp3...")
-    target_dir = os.path.dirname(TARGET_PLAYABLE)
-    if target_dir and not os.path.exists(target_dir):
-        os.makedirs(target_dir, exist_ok=True)
-    with open(TARGET_PLAYABLE, 'wb') as f:
+    os.makedirs(os.path.dirname(OUTPUT_PATCH_EXTRA), exist_ok=True)
+    with open(OUTPUT_PATCH_EXTRA, 'wb') as f:
         f.write(final_xp3_data)
-    print(f"  [✓] Deployed to Playable Folder: {TARGET_PLAYABLE} ({len(final_xp3_data):,} bytes)")
+    print(f"  [✓] Saved built archive: {OUTPUT_PATCH_EXTRA} ({len(final_xp3_data):,} bytes)")
 
-    # Also save standalone copy in current working directory
-    try:
-        with open("patch_extra.xp3", 'wb') as f:
+    if os.path.isdir(PLAYABLE_DIR):
+        with open(TARGET_PLAYABLE, 'wb') as f:
             f.write(final_xp3_data)
-        print("  [✓] Saved standalone patch_extra.xp3 in current directory.")
-    except Exception:
-        pass
+        print(f"  [✓] Deployed to Playable Folder: {TARGET_PLAYABLE} ({len(final_xp3_data):,} bytes)")
 
-    # Check Steam
-    steam_deployed = False
-    for sp in STEAM_PATHS:
-        steam_dir = os.path.dirname(sp)
-        if os.path.exists(steam_dir):
-            try:
-                shutil.copyfile(TARGET_PLAYABLE, sp)
-                print(f"  [✓] Deployed to Steam Folder: {sp}")
-                steam_deployed = True
+    # Deploy directly to detected Steam directory (while keeping thai_mod_backup intact)
+    if steam_dir and os.path.isdir(steam_dir):
+        steam_patch_dst = os.path.join(steam_dir, "patch_extra.xp3")
+        try:
+            shutil.copyfile(OUTPUT_PATCH_EXTRA, steam_patch_dst)
+            print(f"  [✓] Deployed to Steam Folder: {steam_patch_dst}")
 
-                # Also ensure data.xp3 (with Thai fonts) is synced to Steam
-                playable_data = "SenrenBanka_THAI_PLAYABLE/data.xp3"
-                target_steam_data = os.path.join(steam_dir, "data.xp3")
-                if os.path.exists(playable_data):
-                    if not os.path.exists(target_steam_data) or os.path.getsize(target_steam_data) != os.path.getsize(playable_data):
-                        print(f"  [*] Syncing Thai fonts archive (data.xp3) to Steam...")
-                        shutil.copyfile(playable_data, target_steam_data)
+            # Sync Thai fonts archive (data.xp3) if present in output/ or SenrenBanka_THAI_PLAYABLE/
+            for data_cand in (
+                os.path.join(REPO_ROOT, "output", "data.xp3"),
+                os.path.join(PLAYABLE_DIR, "data.xp3"),
+            ):
+                if os.path.isfile(data_cand):
+                    target_steam_data = os.path.join(steam_dir, "data.xp3")
+                    if not os.path.isfile(target_steam_data) or os.path.getsize(target_steam_data) != os.path.getsize(data_cand):
+                        print("  [*] Syncing Thai fonts archive (data.xp3) to Steam...")
+                        shutil.copyfile(data_cand, target_steam_data)
                         print(f"  [✓] Synced Thai fonts (data.xp3) to Steam: {target_steam_data}")
-                break
-            except Exception as e:
-                print(f"  [!] Note on Steam copy: {e}")
+                    break
+        except Exception as e:
+            print(f"  [!] Note on Steam copy: {e}")
 
     # 6. Integrity Verification
     print("\n[*] Performing automatic patch verification...")
@@ -910,15 +939,29 @@ def run_test_all_92():
     print("   SENREN＊BANKA — FULL 92-SCENARIO DRY-RUN VERIFICATION AUDIT")
     print("=" * 72)
 
-    adult_path = r"C:\Program Files (x86)\Steam\steamapps\common\SenrenBanka\adult.xp3"
-    if not os.path.exists(adult_path):
-        adult_path = "archive/original_game_backup/adult.xp3"
+    steam_dir = find_senren_steam_dir()
+    base_patch = next(
+        (p for p in [
+            BASE_PATCH_EXTRA,
+            os.path.join(steam_dir, "thai_mod_backup", "patch_extra.xp3.bak") if steam_dir else None,
+            os.path.join(steam_dir, "patch_extra.xp3") if steam_dir else None,
+        ] if p and os.path.isfile(p)),
+        None,
+    )
+    adult_path = next(
+        (p for p in [
+            os.path.join(BACKUP_DIR, "adult.xp3"),
+            os.path.join(steam_dir, "adult.xp3") if steam_dir else None,
+            os.path.join(PLAYABLE_DIR, "adult.xp3"),
+        ] if p and os.path.isfile(p)),
+        None,
+    )
     
-    print(f"[*] Reading scenario archives:")
-    print(f"  - patch_extra: {BASE_PATCH_EXTRA}")
+    print("[*] Reading scenario archives:")
+    print(f"  - patch_extra: {base_patch}")
     print(f"  - adult:       {adult_path}")
 
-    extra_scns = read_xp3_scenarios(BASE_PATCH_EXTRA)
+    extra_scns = read_xp3_scenarios(base_patch)
     adult_scns = read_xp3_scenarios(adult_path)
 
     all_scns = {}

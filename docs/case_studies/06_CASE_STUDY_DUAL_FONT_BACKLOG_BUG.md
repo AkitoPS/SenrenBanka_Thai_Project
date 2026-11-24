@@ -30,10 +30,10 @@
 
 ## 3. ทางออกและการแก้ไข (The Resolution)
 
-1. **สร้าง Generator สำหรับทั้งสองขนาดพร้อมกัน ([`method/tools/build_extended_tft.py`](file:///c:/Users/DELL/Desktop/VN_Thai_Project/method/tools/build_extended_tft.py)):**
+1. **สร้าง Generator สำหรับทั้งสองขนาดพร้อมกัน ([`method/tools/build_extended_tft.py`](../../tools/build_extended_tft.py)):**
    - `font1_32_extended.tft`: ใช้ความสูง `-36px`, Shift-left $-5\text{ px}$, Elevate tone $+8\text{ px}$
    - `font1_39_extended.tft`: ใช้ความสูง `-44px`, Shift-left $-6\text{ px}$, Elevate tone $+10\text{ px}$
-2. **ปรับปรุง Injector ให้ฉีดทั้ง Member 8 และ 9 ลงใน `data.xp3` ([`method/tools/inject_data_xp3_fonts.py`](file:///c:/Users/DELL/Desktop/VN_Thai_Project/method/tools/inject_data_xp3_fonts.py)):**
+2. **ปรับปรุง Injector ให้ฉีดทั้ง Member 8 และ 9 ลงใน `data.xp3` ([`method/tools/inject_data_xp3_fonts.py`](../../tools/inject_all_fonts_data_xp3.py)):**
    - เข้ารหัสแต่ละไฟล์ด้วยคีย์ XOR ประจำตัวของมัน
    - คำนวณ Delta รวม ($\Delta_{\text{total}} = +65,443$ ไบต์) และเลื่อนพิกัดของไฟล์ที่เหลือทั้งหมดใน `data.xp3`
 3. **ผลลัพธ์:** ทั้งหน้าจอสนทนาหลักและหน้าต่าง Backlog แสดงผลฟอนต์ Noto Sans Thai Looped ได้อย่างสวยงาม 100% ปราศจากกล่องเต้าหู้โดยสิ้นเชิง

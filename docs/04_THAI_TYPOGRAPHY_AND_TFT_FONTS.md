@@ -138,4 +138,4 @@ if cp in THAI_COMBINING_MARKS:
 เมื่อทำโปรแกรมติดตั้งแพตช์ภาษาไทย (Installer `.exe` หรือ `.bat`) ตอนจบโปรเจกต์ โปรแกรมติดตั้งจะต้องมีขั้นตอนบังคับ:
 1. **แก้ไฟล์ `datasc.ksd` อัตโนมัติ:** ค้นหาโฟลเดอร์ `%APPDATA%\Yuzusoft\SenrenBanka\` และบังคับเปลี่ยน `"faceMode" => 1,` ให้เป็น `"faceMode" => 0,`
 2. **ติดตั้งฟอนต์คู่ขนาน (Dual-Redundancy):** คัดลอก `font1_32.tft` และ `font1_39.tft` ไปไว้ในโฟลเดอร์ `font/` ของเกมโดยตรงด้วย นอกเหนือจากการฉีดเข้า `data.xp3`
-*(ดูรายละเอียดและโค้ดอ้างอิงฉบับเต็มได้ใน [lessons_learned/08_CASE_STUDY_DATASC_FACEMODE_AND_INSTALLER_SPECS.md](file:///c:/Users/DELL/Desktop/VN_Thai_Project/lessons_learned/08_CASE_STUDY_DATASC_FACEMODE_AND_INSTALLER_SPECS.md))*
+*(ดูรายละเอียดและโค้ดอ้างอิงฉบับเต็มได้ใน [lessons_learned/08_CASE_STUDY_DATASC_FACEMODE_AND_INSTALLER_SPECS.md](case_studies/08_CASE_STUDY_DATASC_FACEMODE_AND_INSTALLER_SPECS.md))*

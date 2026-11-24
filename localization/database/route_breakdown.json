@@ -1,0 +1,605 @@
+{
+  "total_scenario_files": 92,
+  "routes": {
+    "1. Common Route (รูทกลาง / บทนำและเนื้อเรื่องร่วม)": {
+      "chapters": [
+        {
+          "number": "001",
+          "filename": "001・アーサー王ver1.07.ks.scn",
+          "dialogue_lines": 3755,
+          "total_strings": 3900
+        },
+        {
+          "number": "002",
+          "filename": "002・祟り神ver1.08.ks.scn",
+          "dialogue_lines": 2492,
+          "total_strings": 2636
+        },
+        {
+          "number": "003",
+          "filename": "003・巫女の秘密ver1.11.ks.scn",
+          "dialogue_lines": 4282,
+          "total_strings": 4434
+        },
+        {
+          "number": "004",
+          "filename": "004・学院初日ver1.04.ks.scn",
+          "dialogue_lines": 2343,
+          "total_strings": 2467
+        },
+        {
+          "number": "005",
+          "filename": "005・鍛錬ver1.04.ks.scn",
+          "dialogue_lines": 1470,
+          "total_strings": 1582
+        },
+        {
+          "number": "006",
+          "filename": "006・レナ登場ver1.03.ks.scn",
+          "dialogue_lines": 2954,
+          "total_strings": 3123
+        },
+        {
+          "number": "007",
+          "filename": "007・レナ転入ver1.03.ks.scn",
+          "dialogue_lines": 2783,
+          "total_strings": 2917
+        },
+        {
+          "number": "008",
+          "filename": "008・仕切り直しver1.02.ks.scn",
+          "dialogue_lines": 36,
+          "total_strings": 1073
+        },
+        {
+          "number": "009",
+          "filename": "009・謎の欠片ver1.03.ks.scn",
+          "dialogue_lines": 3590,
+          "total_strings": 3722
+        },
+        {
+          "number": "010",
+          "filename": "010・リフレッシュver1.04.ks.scn",
+          "dialogue_lines": 5659,
+          "total_strings": 5884
+        },
+        {
+          "number": "011",
+          "filename": "011・襲来ver1.04.ks.scn",
+          "dialogue_lines": 2068,
+          "total_strings": 2194
+        },
+        {
+          "number": "012",
+          "filename": "012・病床ver1.06.ks.scn",
+          "dialogue_lines": 3673,
+          "total_strings": 3840
+        },
+        {
+          "number": "013",
+          "filename": "013・欠片集めver1.06.ks.scn",
+          "dialogue_lines": 2383,
+          "total_strings": 2525
+        },
+        {
+          "number": "014",
+          "filename": "014・合体編ver1.03.ks.scn",
+          "dialogue_lines": 2945,
+          "total_strings": 3095
+        },
+        {
+          "number": "015",
+          "filename": "015・ノーマルendver1.01.ks.scn",
+          "dialogue_lines": 1417,
+          "total_strings": 1542
+        }
+      ],
+      "total_dialogue": 41850,
+      "total_strings": 44934
+    },
+    "2. Yoshino Route (รูทโทโมทาเกะ โยชิโนะ)": {
+      "chapters": [
+        {
+          "number": "100",
+          "filename": "100・芳乃－語らいver1.01.ks.scn",
+          "dialogue_lines": 1304,
+          "total_strings": 1394
+        },
+        {
+          "number": "101",
+          "filename": "101・芳乃－弁当ver1.02.ks.scn",
+          "dialogue_lines": 2777,
+          "total_strings": 2898
+        },
+        {
+          "number": "102",
+          "filename": "102・芳乃－告白ver1.03.ks.scn",
+          "dialogue_lines": 3598,
+          "total_strings": 3729
+        },
+        {
+          "number": "103",
+          "filename": "103・芳乃－氷解ver1.04.ks.scn",
+          "dialogue_lines": 3018,
+          "total_strings": 3139
+        },
+        {
+          "number": "104",
+          "filename": "104・芳乃－記者会見ver1.05.ks.scn",
+          "dialogue_lines": 3055,
+          "total_strings": 3195
+        },
+        {
+          "number": "105",
+          "filename": "105・芳乃－少女漫画ver1.01.ks.scn",
+          "dialogue_lines": 1642,
+          "total_strings": 1745
+        },
+        {
+          "number": "106",
+          "filename": "106・芳乃－キスver1.01.ks.scn",
+          "dialogue_lines": 2923,
+          "total_strings": 3061
+        },
+        {
+          "number": "107",
+          "filename": "107・芳乃－獣耳ver1.02.ks.scn",
+          "dialogue_lines": 3582,
+          "total_strings": 3714
+        },
+        {
+          "number": "108",
+          "filename": "108・芳乃－解呪ver1.01.ks.scn",
+          "dialogue_lines": 2957,
+          "total_strings": 3089
+        },
+        {
+          "number": "109",
+          "filename": "109・芳乃－平穏ver1.01.ks.scn",
+          "dialogue_lines": 30,
+          "total_strings": 1180
+        },
+        {
+          "number": "110",
+          "filename": "110・芳乃－初体験ver1.01.ks.scn",
+          "dialogue_lines": 2617,
+          "total_strings": 2731
+        },
+        {
+          "number": "111",
+          "filename": "111・芳乃－その後ver1.01.ks.scn",
+          "dialogue_lines": 2456,
+          "total_strings": 2576
+        },
+        {
+          "number": "112",
+          "filename": "112・芳乃－２回目ver1.01.ks.scn",
+          "dialogue_lines": 36,
+          "total_strings": 957
+        },
+        {
+          "number": "113",
+          "filename": "113・芳乃－母上様ver1.01.ks.scn",
+          "dialogue_lines": 1965,
+          "total_strings": 2078
+        },
+        {
+          "number": "114",
+          "filename": "114・芳乃－ＥＰver1.01.ks.scn",
+          "dialogue_lines": 14,
+          "total_strings": 607
+        },
+        {
+          "number": "115",
+          "filename": "115・芳乃－ａｆｔｅｒver1.01.ks.scn",
+          "dialogue_lines": 726,
+          "total_strings": 3338
+        }
+      ],
+      "total_dialogue": 31974,
+      "total_strings": 36093
+    },
+    "3. Mako Route (รูทฮิตาจิ มาโกะ)": {
+      "chapters": [
+        {
+          "number": "200",
+          "filename": "200・茉子－語らいver1.00.ks.scn",
+          "dialogue_lines": 21,
+          "total_strings": 1063
+        },
+        {
+          "number": "201",
+          "filename": "201・茉子－婚約解消ver1.01.ks.scn",
+          "dialogue_lines": 2961,
+          "total_strings": 3077
+        },
+        {
+          "number": "202",
+          "filename": "202・茉子－実家ver1.01.ks.scn",
+          "dialogue_lines": 4520,
+          "total_strings": 4667
+        },
+        {
+          "number": "203",
+          "filename": "203・茉子－子犬ver1.01.ks.scn",
+          "dialogue_lines": 2337,
+          "total_strings": 2466
+        },
+        {
+          "number": "204",
+          "filename": "204・茉子－気持ちver1.00.ks.scn",
+          "dialogue_lines": 2742,
+          "total_strings": 2875
+        },
+        {
+          "number": "205",
+          "filename": "205・茉子－デートver1.00.ks.scn",
+          "dialogue_lines": 4870,
+          "total_strings": 5026
+        },
+        {
+          "number": "206",
+          "filename": "206・茉子－オナニーver1.00.ks.scn",
+          "dialogue_lines": 2650,
+          "total_strings": 2783
+        },
+        {
+          "number": "207",
+          "filename": "207・茉子－初体験ver1.00.ks.scn",
+          "dialogue_lines": 2587,
+          "total_strings": 2716
+        },
+        {
+          "number": "208",
+          "filename": "208・茉子－いちゃラヴver1.00.ks.scn",
+          "dialogue_lines": 2599,
+          "total_strings": 2733
+        },
+        {
+          "number": "209",
+          "filename": "209・茉子－暴走改編ver1.01.ks.scn",
+          "dialogue_lines": 4578,
+          "total_strings": 4724
+        },
+        {
+          "number": "210",
+          "filename": "210・茉子－エピローグver1.00.ks.scn",
+          "dialogue_lines": 36,
+          "total_strings": 1087
+        },
+        {
+          "number": "211",
+          "filename": "211・茉子－ａｆｔｅｒver1.00.ks.scn",
+          "dialogue_lines": 623,
+          "total_strings": 3014
+        }
+      ],
+      "total_dialogue": 29901,
+      "total_strings": 33217
+    },
+    "4. Murasame Route (รูทมุราซาเมะ)": {
+      "chapters": [
+        {
+          "number": "301",
+          "filename": "301・ムラサメちゃんルート０１ver1.3.ks.scn",
+          "dialogue_lines": 2877,
+          "total_strings": 2989
+        },
+        {
+          "number": "302",
+          "filename": "302・ムラサメちゃんルート０２ver1.3.ks.scn",
+          "dialogue_lines": 3408,
+          "total_strings": 3519
+        },
+        {
+          "number": "303",
+          "filename": "303・ムラサメちゃんルート０３ver1.2.ks.scn",
+          "dialogue_lines": 2615,
+          "total_strings": 2729
+        },
+        {
+          "number": "304",
+          "filename": "304・ムラサメちゃんルート０４ver1.2.ks.scn",
+          "dialogue_lines": 1625,
+          "total_strings": 1729
+        },
+        {
+          "number": "305",
+          "filename": "305・ムラサメちゃんルート０５ver1.2.ks.scn",
+          "dialogue_lines": 4078,
+          "total_strings": 4210
+        },
+        {
+          "number": "306",
+          "filename": "306・ムラサメちゃんルート０６ver1.3.ks.scn",
+          "dialogue_lines": 3076,
+          "total_strings": 3190
+        },
+        {
+          "number": "307",
+          "filename": "307・ムラサメちゃんルート０７ver1.2.ks.scn",
+          "dialogue_lines": 1954,
+          "total_strings": 2055
+        },
+        {
+          "number": "308",
+          "filename": "308・ムラサメちゃんルート０８ver1.2.ks.scn",
+          "dialogue_lines": 2055,
+          "total_strings": 2183
+        },
+        {
+          "number": "309",
+          "filename": "309・ムラサメちゃんルート０９ver1.3.ks.scn",
+          "dialogue_lines": 1819,
+          "total_strings": 1913
+        },
+        {
+          "number": "310",
+          "filename": "310・ムラサメちゃんルート１０ver1.2.ks.scn",
+          "dialogue_lines": 5615,
+          "total_strings": 5746
+        },
+        {
+          "number": "311",
+          "filename": "311・ムラサメちゃんルート１１ver1.2.ks.scn",
+          "dialogue_lines": 2786,
+          "total_strings": 2894
+        },
+        {
+          "number": "312",
+          "filename": "312・ムラサメちゃんルート１２ver1.2.ks.scn",
+          "dialogue_lines": 2627,
+          "total_strings": 2739
+        },
+        {
+          "number": "313",
+          "filename": "313・ムラサメちゃんルート１３ver1.2.ks.scn",
+          "dialogue_lines": 2843,
+          "total_strings": 2961
+        },
+        {
+          "number": "314",
+          "filename": "314・ムラサメちゃんルート１４ver1.3.ks.scn",
+          "dialogue_lines": 1663,
+          "total_strings": 1766
+        },
+        {
+          "number": "315",
+          "filename": "315・ムラサメちゃんルート１５ver1.3.ks.scn",
+          "dialogue_lines": 34,
+          "total_strings": 1372
+        },
+        {
+          "number": "316",
+          "filename": "316・ムラサメちゃんルート１６ver1.2.ks.scn",
+          "dialogue_lines": 12,
+          "total_strings": 614
+        },
+        {
+          "number": "317",
+          "filename": "317・ムラサメちゃんおまけルートver1.2.ks.scn",
+          "dialogue_lines": 2263,
+          "total_strings": 3640
+        }
+      ],
+      "total_dialogue": 39087,
+      "total_strings": 42609
+    },
+    "5. Lena Route (รูทเลน่า ลิชเทเนาเออร์)": {
+      "chapters": [
+        {
+          "number": "414",
+          "filename": "414レナ・イザナウ.ks.scn",
+          "dialogue_lines": 3358,
+          "total_strings": 3476
+        },
+        {
+          "number": "415",
+          "filename": "415レナ・欠片吸収.ks.scn",
+          "dialogue_lines": 1838,
+          "total_strings": 1924
+        },
+        {
+          "number": "416",
+          "filename": "416レナ・クレイジーファイト.ks.scn",
+          "dialogue_lines": 2936,
+          "total_strings": 3054
+        },
+        {
+          "number": "417",
+          "filename": "417レナ・エニシ.ks.scn",
+          "dialogue_lines": 3787,
+          "total_strings": 3905
+        },
+        {
+          "number": "418",
+          "filename": "418レナ・馴染む.ks.scn",
+          "dialogue_lines": 3127,
+          "total_strings": 3232
+        },
+        {
+          "number": "419",
+          "filename": "419レナ・ラップランドの味覚.ks.scn",
+          "dialogue_lines": 3002,
+          "total_strings": 3109
+        },
+        {
+          "number": "420",
+          "filename": "420レナ・お泊まり会.ks.scn",
+          "dialogue_lines": 2900,
+          "total_strings": 3016
+        },
+        {
+          "number": "421",
+          "filename": "421レナ・玉石の女神.ks.scn",
+          "dialogue_lines": 2182,
+          "total_strings": 2291
+        },
+        {
+          "number": "422",
+          "filename": "422レナ・日常デート.ks.scn",
+          "dialogue_lines": 2176,
+          "total_strings": 2272
+        },
+        {
+          "number": "423",
+          "filename": "423レナ・叢雲より生じたる.ks.scn",
+          "dialogue_lines": 3701,
+          "total_strings": 3819
+        },
+        {
+          "number": "424",
+          "filename": "424レナ・トモダチ.ks.scn",
+          "dialogue_lines": 2353,
+          "total_strings": 2462
+        },
+        {
+          "number": "425",
+          "filename": "425レナ・呪いの真実.ks.scn",
+          "dialogue_lines": 1489,
+          "total_strings": 1590
+        },
+        {
+          "number": "426",
+          "filename": "426レナ・前夜.ks.scn",
+          "dialogue_lines": 1511,
+          "total_strings": 1597
+        },
+        {
+          "number": "427",
+          "filename": "427レナ・古の祝詞.ks.scn",
+          "dialogue_lines": 2944,
+          "total_strings": 3067
+        },
+        {
+          "number": "428",
+          "filename": "428レナ・未来への祭祀.ks.scn",
+          "dialogue_lines": 20,
+          "total_strings": 917
+        },
+        {
+          "number": "429",
+          "filename": "429レナ・いらっしゃい.ks.scn",
+          "dialogue_lines": 457,
+          "total_strings": 2249
+        }
+      ],
+      "total_dialogue": 37324,
+      "total_strings": 39731
+    },
+    "6-7. Sub-Common Route (รูทเสริมร่วม)": {
+      "chapters": [
+        {
+          "number": "501",
+          "filename": "501・サブ－新たな日々ver1.00.ks.scn",
+          "dialogue_lines": 1747,
+          "total_strings": 1842
+        },
+        {
+          "number": "502",
+          "filename": "502・サブ－アルバイトver1.00.ks.scn",
+          "dialogue_lines": 1853,
+          "total_strings": 1939
+        },
+        {
+          "number": "505",
+          "filename": "505・サブ－ピンとくる２人ver1.00.ks.scn",
+          "dialogue_lines": 40,
+          "total_strings": 1459
+        },
+        {
+          "number": "506",
+          "filename": "506・サブ－恋愛協定ver1.00.ks.scn",
+          "dialogue_lines": 1524,
+          "total_strings": 1606
+        },
+        {
+          "number": "507",
+          "filename": "507・サブ－選択肢ver1.00.ks.scn",
+          "dialogue_lines": 2205,
+          "total_strings": 2324
+        },
+        {
+          "number": "508",
+          "filename": "508a・サブ－こはるんver1.00.ks.scn",
+          "dialogue_lines": 33,
+          "total_strings": 965
+        },
+        {
+          "number": "509",
+          "filename": "509・サブ－分岐ver1.00.ks.scn",
+          "dialogue_lines": 24,
+          "total_strings": 1101
+        }
+      ],
+      "total_dialogue": 7426,
+      "total_strings": 11236
+    },
+    "6. Koharu Route (รูทคุรามะ โคฮารุ - รูทเสริม)": {
+      "chapters": [
+        {
+          "number": "503",
+          "filename": "503・サブ－小春の目覚めver1.00.ks.scn",
+          "dialogue_lines": 2130,
+          "total_strings": 2222
+        },
+        {
+          "number": "511",
+          "filename": "511・サブ－小春（初体験）ver1.00.ks.scn",
+          "dialogue_lines": 1557,
+          "total_strings": 1656
+        },
+        {
+          "number": "512",
+          "filename": "512・サブ－小春（その後）ver1.00.ks.scn",
+          "dialogue_lines": 1478,
+          "total_strings": 1583
+        },
+        {
+          "number": "513",
+          "filename": "513・サブ－小春（ａｆｔｅｒ）ver1.00.ks.scn",
+          "dialogue_lines": 425,
+          "total_strings": 2125
+        }
+      ],
+      "total_dialogue": 5165,
+      "total_strings": 5461
+    },
+    "7. Roka Route (รูทบาบะ โรกะ - รูทเสริม)": {
+      "chapters": [
+        {
+          "number": "504",
+          "filename": "504・サブ－芦花の目覚めver1.00.ks.scn",
+          "dialogue_lines": 2312,
+          "total_strings": 2412
+        },
+        {
+          "number": "508",
+          "filename": "508b・サブ－芦花姉ver1.00.ks.scn",
+          "dialogue_lines": 36,
+          "total_strings": 1141
+        },
+        {
+          "number": "521",
+          "filename": "521・サブ－芦花（初体験）ver1.00.ks.scn",
+          "dialogue_lines": 2395,
+          "total_strings": 2483
+        },
+        {
+          "number": "522",
+          "filename": "522・サブ－芦花（その後）ver1.00.ks.scn",
+          "dialogue_lines": 34,
+          "total_strings": 1008
+        },
+        {
+          "number": "523",
+          "filename": "523・サブ－芦花（ａｆｔｅｒ）ver1.00.ks.scn",
+          "dialogue_lines": 490,
+          "total_strings": 2300
+        }
+      ],
+      "total_dialogue": 4777,
+      "total_strings": 7044
+    }
+  }
+}

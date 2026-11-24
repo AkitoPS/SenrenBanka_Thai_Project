@@ -53,7 +53,10 @@ DO_NOT_END_LINE = {
 }
 
 class ThaiWordWrapper:
-    def __init__(self, glossary_path: str = "localization/database/glossary.json"):
+    def __init__(self, glossary_path: str | None = None):
+        if glossary_path is None:
+            repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            glossary_path = os.path.join(repo_root, "localization", "database", "glossary.json")
         self.glossary_words = set()
         if os.path.exists(glossary_path):
             with open(glossary_path, 'r', encoding='utf-8') as f:

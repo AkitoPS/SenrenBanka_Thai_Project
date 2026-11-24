@@ -50,7 +50,7 @@
 
 ## 3. ทางออกทางวิศวกรรม (The Custom Packaging Engine)
 
-เราจึงเขียนเครื่องมือ Repacker ขึ้นมาใหม่ทั้งหมดด้วย Python ([`method/tools/pack_patch_extra.py`](file:///c:/Users/DELL/Desktop/VN_Thai_Project/method/tools/pack_patch_extra.py)):
+เราจึงเขียนเครื่องมือ Repacker ขึ้นมาใหม่ทั้งหมดด้วย Python ([`method/tools/pack_patch_extra.py`](../../tools/thai_injector.py)):
 
 1. **ดึง Chunk `sen:` ต้นฉบับมาคำนวณใหม่:**
    - คำนวณ `new_hnfn_off` ตาม Delta ขนาดไฟล์ที่เปลี่ยนไป

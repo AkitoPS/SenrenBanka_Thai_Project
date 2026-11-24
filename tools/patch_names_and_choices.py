@@ -14,9 +14,16 @@ import openpyxl
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-sys.path.insert(0, '.')
-sys.path.insert(0, 'tool')
-from thai_pua_shaper import shape_thai_text
+TOOLS_DIR = os.path.dirname(os.path.abspath(__file__))
+REPO_ROOT = os.path.dirname(TOOLS_DIR)
+if REPO_ROOT not in sys.path:
+    sys.path.insert(0, REPO_ROOT)
+if TOOLS_DIR not in sys.path:
+    sys.path.insert(0, TOOLS_DIR)
+try:
+    from tools.thai_pua_shaper import shape_thai_text
+except ImportError:
+    from thai_pua_shaper import shape_thai_text
 
 ORIGINAL_ARCHIVE = "archive/original_game_backup/patch_extra.xp3"
 TARGET_PLAYABLE = "SenrenBanka_THAI_PLAYABLE/patch_extra.xp3"

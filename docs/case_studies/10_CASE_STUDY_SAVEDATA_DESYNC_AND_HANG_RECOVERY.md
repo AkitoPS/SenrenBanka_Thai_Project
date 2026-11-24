@@ -13,7 +13,7 @@
 
 ### Cause A: Why did the game freeze ("Application Hang" Event 1002)?
 1. **Launch Context:** Windows Application Event Log confirms Event 1002 (`Application Hang` / `AppHangB1`) occurred at `11/7/2026 2:09:53 PM` on:
-   `c:\Users\DELL\Desktop\VN_Thai_Project\SenrenBanka_THAI_PLAYABLE\SenrenBanka.exe`
+   `C:\Users\<User>\Desktop\VN_Thai_Project\SenrenBanka_THAI_PLAYABLE\SenrenBanka.exe`
 2. **Bookmark/Thumbnail Mismatch:**
    - In `SenrenBanka_THAI_PLAYABLE\savedata`, 75 save thumbnail files (`data_*.bmp`) existed on disk.
    - However, `SenrenBanka_THAI_PLAYABLE\savedata\datasc.ksd` was a bare 1,990-byte file where `"bookMarkIndex"` was completely empty (`%[]`).

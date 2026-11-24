@@ -4,7 +4,7 @@
 
 ## 1. ปัญหาและอาการที่ตรวจพบ (The Symptoms)
 
-หลังจากแก้ไขปัญหาตัดคำ (Word Wrap) และตรวจสอบความถูกต้องของบทแปลใน Excel [Senren_Banka_Thai_Progress.xlsx](file:///c:/Users/DELL/Desktop/VN_Thai_Project/localization/database/Senren_Banka_Thai_Progress.xlsx) รวมถึงฉีดไฟล์เข้า [patch_extra.xp3](file:///C:/Program%20Files%20(x86)/Steam/steamapps/common/SenrenBanka/patch_extra.xp3) เรียบร้อยแล้ว เมื่อผู้ใช้เปิดเข้าเล่นเกมจริงใน **Chapter 1-1** กลับพบความผิดปกติบนหน้าจอ:
+หลังจากแก้ไขปัญหาตัดคำ (Word Wrap) และตรวจสอบความถูกต้องของบทแปลใน Excel [Senren_Banka_Thai_Progress.xlsx](../../Senren_Banka_Thai_Progress.xlsx) รวมถึงฉีดไฟล์เข้า patch_extra.xp3/Steam/steamapps/common/SenrenBanka/patch_extra.xp3) เรียบร้อยแล้ว เมื่อผู้ใช้เปิดเข้าเล่นเกมจริงใน **Chapter 1-1** กลับพบความผิดปกติบนหน้าจอ:
 
 1. **กล่องสี่เหลี่ยมเต้าหู้ `[]` (Tofu Boxes):** ปรากฏตรงคำที่มีการซ้อนของสระบนและวรรณยุกต์ เช่น `ที[]`, `ตั[]ง`, `เมื[]อ`, `กี[]`, `นั[]น`, `เรื[]อง`, `เป[]น`
 2. **ตัวอักษรเว้นวรรคห่างเป็นช่องๆ (Unwanted Spacing):** เช่น `เล ่า`, `มั น`, `ผู ้`, `สรุ ป`, `รั บ`, `วิ ญญาณ`
@@ -48,7 +48,7 @@
 ## 3. วิธีการแก้ไข (Solution Implemented)
 
 ### ก. การปรับค่าคอนฟิก `datasc.ksd`
-สร้างสคริปต์ [tool/fix_facemode.py](file:///c:/Users/DELL/Desktop/VN_Thai_Project/tool/fix_facemode.py) เพื่อคลายการบีบอัดและแก้ไขค่าคอนฟิกของตัวเกม:
+สร้างสคริปต์ [tool/fix_facemode.py](../../tools/fix_facemode.py) เพื่อคลายการบีบอัดและแก้ไขค่าคอนฟิกของตัวเกม:
 ```python
 def unpack_ksd(data: bytes) -> str:
     off = data.find(b'x\x9c')
@@ -66,7 +66,7 @@ text = text.replace('"faceMode" => 1,', '"faceMode" => 0,')
 ```
 
 ### ข. การวางฟอนต์แบบ Loose Files ในโฟลเดอร์ `font/`
-นอกจากการแพ็กฟอนต์ลงใน `data.xp3` แล้ว ให้คัดลอก [font1_32_extended.tft](file:///c:/Users/DELL/Desktop/VN_Thai_Project/tool/font1_32_extended.tft) และ [font1_39_extended.tft](file:///c:/Users/DELL/Desktop/VN_Thai_Project/tool/font1_39_extended.tft) ไปไว้ที่:
+นอกจากการแพ็กฟอนต์ลงใน `data.xp3` แล้ว ให้คัดลอก font1_32_extended.tft และ font1_39_extended.tft ไปไว้ที่:
 `C:\Program Files (x86)\Steam\steamapps\common\SenrenBanka\font\`
 เพื่อให้เอนจิน Kirikiri Z สามารถเข้าถึงไฟล์ฟอนต์ได้อย่างแน่นอน 100% ไม่ว่าจะผ่าน VFS ของคลังเก็บหรือไฟล์ตรง
 
